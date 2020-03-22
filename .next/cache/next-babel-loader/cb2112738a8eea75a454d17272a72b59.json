@@ -1,0 +1,1 @@
+{"ast":null,"code":"import './style.css';","map":{"version":3,"sources":["E:/code/next-app/pages/_app.js"],"names":[],"mappings":"AAAA,OAAO,aAAP","sourcesContent":["import './style.css';"]},"metadata":{},"sourceType":"module"}
