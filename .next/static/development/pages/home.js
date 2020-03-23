@@ -13634,23 +13634,25 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 
 
 var Home = function Home(props) {
-  console.log('props render ... '); // console.log(props);
+  console.log('Home render ... ');
+  console.log('Home props is ', props);
+  console.log('name is ', props.name);
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, __jsx(antd_lib_button__WEBPACK_IMPORTED_MODULE_1___default.a, null, props.router.query.id), __jsx("div", null, props.name));
+}; // custom 的 App 会屏蔽子组件的getInitialProps
 
-  return __jsx(antd_lib_button__WEBPACK_IMPORTED_MODULE_1___default.a, null, props.router.query.id
-  /*  || (props.router.asPath.split('/'))[2] */
-  );
-}; // Home.getInitialProps = () => {
-//     return {
-//         name: 'CregskiN'
-//     }
-// }
 
+Home.getInitialProps = function (p) {
+  // console.log('ho',p,',me');
+  return {
+    name: 'CregskiN'
+  };
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(next_router__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Home));
 
 /***/ }),
 
-/***/ 2:
+/***/ 3:
 /*!**************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fhome&absolutePagePath=E%3A%5Ccode%5Cnext-app%5Cpages%5Chome.tsx ***!
   \**************************************************************************************************************/
@@ -13673,5 +13675,5 @@ module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js","styles"]]]);
+},[[3,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=home.js.map

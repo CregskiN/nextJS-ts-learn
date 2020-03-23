@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -117,23 +117,25 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 
 
 const Home = props => {
-  console.log('props render ... '); // console.log(props);
+  console.log('Home render ... ');
+  console.log('Home props is ', props);
+  console.log('name is ', props.name);
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, __jsx(antd_lib_button__WEBPACK_IMPORTED_MODULE_1___default.a, null, props.router.query.id), __jsx("div", null, props.name));
+}; // custom 的 App 会屏蔽子组件的getInitialProps
 
-  return __jsx(antd_lib_button__WEBPACK_IMPORTED_MODULE_1___default.a, null, props.router.query.id
-  /*  || (props.router.asPath.split('/'))[2] */
-  );
-}; // Home.getInitialProps = () => {
-//     return {
-//         name: 'CregskiN'
-//     }
-// }
 
+Home.getInitialProps = p => {
+  // console.log('ho',p,',me');
+  return {
+    name: 'CregskiN'
+  };
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(next_router__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Home));
 
 /***/ }),
 
-/***/ 5:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/home.tsx ***!
   \******************************/

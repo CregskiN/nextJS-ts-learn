@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Button } from 'antd';
 import { withRouter, Router, NextRouter } from 'next/router';
 import { NextComponentType } from 'next';
@@ -7,26 +7,32 @@ interface HomeInitialProps {
     name: string
 }
 
-interface HomeProps {
+interface HomeProps extends HomeInitialProps {
     router: NextRouter;
-    url: Router;
+    // url: Router; // 随着App废弃，这个也没了
 }
 
-const Home: NextComponentType<any, any, HomeProps> = (props) => {
+const Home: NextComponentType<any, HomeInitialProps, HomeProps> = (props) => {
 
-    console.log('props render ... ');
-    // console.log(props);
+    console.log('Home render ... ');
+    console.log('Home props is ', props);
+    console.log('name is ', props.name);
 
     return (
-        <Button>{props.router.query.id/*  || (props.router.asPath.split('/'))[2] */}</Button>
+        <Fragment>
+            <Button>{props.router.query.id}</Button>
+            <div>{props.name}</div>
+        </Fragment>
     )
 }
 
+// custom 的 App 会屏蔽子组件的getInitialProps
+Home.getInitialProps = (p) => {
+    // console.log('ho',p,',me');
 
-// Home.getInitialProps = () => {
-//     return {
-//         name: 'CregskiN'
-//     }
-// }
+    return {
+        name: 'CregskiN'
+    }
+}
 
 export default withRouter(Home);
