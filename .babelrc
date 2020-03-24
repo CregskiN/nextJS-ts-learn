@@ -6,5 +6,10 @@
             "libraryName": "antd",
             "style": "css" // `style: true` 会加载 less 文件
         }
+    ], [
+        "styled-components", // 用于预编译css
+        {
+            "ssr": true
+        }
     ]]
 }
