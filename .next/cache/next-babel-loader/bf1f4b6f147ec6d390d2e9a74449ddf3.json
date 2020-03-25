@@ -1,1 +1,0 @@
-{"ast":null,"code":"import '../style.css';\n\nconst component = () => {};","map":{"version":3,"sources":["E:/code/next-app/pages/_app.js"],"names":["component"],"mappings":"AAAA,OAAO,cAAP;;AAEA,MAAMA,SAAS,GAAG,MAAM,CAEvB,CAFD","sourcesContent":["import '../style.css';\r\n\r\nconst component = () => {\r\n    \r\n}\r\n"]},"metadata":{},"sourceType":"module"}

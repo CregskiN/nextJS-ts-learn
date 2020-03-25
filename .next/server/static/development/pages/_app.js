@@ -106,14 +106,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var antd_lib_button_style_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(antd_lib_button_style_css__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var antd_lib_button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/lib/button */ "antd/lib/button");
 /* harmony import */ var antd_lib_button__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(antd_lib_button__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-jsx/style */ "styled-jsx/style");
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_jsx_style__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
-var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement;
 
 
 const Layout = props => {
@@ -121,11 +124,19 @@ const Layout = props => {
     children
   } = props;
   console.log('component Layout render..');
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, __jsx("header", null, __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  return __jsx("div", {
+    className: "jsx-2450381199"
+  }, __jsx("div", {
+    className: "jsx-2450381199" + " " + 'root'
+  }, __jsx("header", {
+    className: "jsx-2450381199"
+  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
     href: "/home"
-  }, __jsx(antd_lib_button__WEBPACK_IMPORTED_MODULE_1___default.a, null, "go home")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, __jsx(antd_lib_button__WEBPACK_IMPORTED_MODULE_1___default.a, null, "go home")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
     href: "/t/list"
-  }, __jsx(antd_lib_button__WEBPACK_IMPORTED_MODULE_1___default.a, null, "go list"))), children);
+  }, __jsx(antd_lib_button__WEBPACK_IMPORTED_MODULE_1___default.a, null, "go list"))), children), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    id: "2450381199"
+  }, ".root.jsx-2450381199{position:absolute;left:400px;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkU6XFxjb2RlXFxuZXh0LWFwcFxcY29tcG9uZW50c1xcTGF5b3V0XFxMYXlvdXQudHN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQThCd0IsQUFFMkMsa0JBQ1AsV0FDZiIsImZpbGUiOiJFOlxcY29kZVxcbmV4dC1hcHBcXGNvbXBvbmVudHNcXExheW91dFxcTGF5b3V0LnRzeCIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBMaW5rIGZyb20gJ25leHQvbGluayc7XHJcbmltcG9ydCB7IEJ1dHRvbiB9IGZyb20gJ2FudGQnO1xyXG5cclxuaW50ZXJmYWNlIExheW91dFByb3BzIHsgfVxyXG5cclxuXHJcbmNvbnN0IExheW91dDogUmVhY3QuRkM8TGF5b3V0UHJvcHM+ID0gKHByb3BzKSA9PiB7XHJcblxyXG4gICAgY29uc3Qge1xyXG4gICAgICAgIGNoaWxkcmVuXHJcbiAgICB9ID0gcHJvcHM7XHJcblxyXG4gICAgY29uc29sZS5sb2coJ2NvbXBvbmVudCBMYXlvdXQgcmVuZGVyLi4nKTtcclxuXHJcbiAgICByZXR1cm4gKFxyXG4gICAgICAgIDxkaXY+XHJcbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPSdyb290Jz5cclxuICAgICAgICAgICAgICAgIDxoZWFkZXI+XHJcbiAgICAgICAgICAgICAgICAgICAgPExpbmsgaHJlZj0nL2hvbWUnID5cclxuICAgICAgICAgICAgICAgICAgICAgICAgPEJ1dHRvbj5nbyBob21lPC9CdXR0b24+XHJcbiAgICAgICAgICAgICAgICAgICAgPC9MaW5rPlxyXG4gICAgICAgICAgICAgICAgICAgIDxMaW5rIGhyZWY9Jy90L2xpc3QnID5cclxuICAgICAgICAgICAgICAgICAgICAgICAgPEJ1dHRvbj5nbyBsaXN0PC9CdXR0b24+XHJcbiAgICAgICAgICAgICAgICAgICAgPC9MaW5rPlxyXG4gICAgICAgICAgICAgICAgPC9oZWFkZXI+XHJcbiAgICAgICAgICAgICAgICB7XHJcbiAgICAgICAgICAgICAgICAgICAgY2hpbGRyZW5cclxuICAgICAgICAgICAgICAgIH1cclxuXHJcbiAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICA8c3R5bGUganN4PntgLnJvb3R7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgICAgICAgICAgICAgICAgICAgICAgbGVmdDogNDAwcHg7XHJcbiAgICAgICAgICAgICAgICAgICAgfWB9PC9zdHlsZT5cclxuICAgICAgICA8L2Rpdj5cclxuICAgIClcclxufVxyXG5cclxuXHJcbmV4cG9ydCBkZWZhdWx0IExheW91dDsiXX0= */\n/*@ sourceURL=E:\\\\code\\\\next-app\\\\components\\\\Layout\\\\Layout.tsx */"));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Layout);
@@ -2256,8 +2267,8 @@ const Container = ({
   pageProps
 }) => {
   // console.log(Component); // withRouteWrapper
-  console.log('pageProps is', pageProps); // pageProps渲染完成 此处定制pageProps
-
+  // console.log('pageProps is', pageProps);
+  // pageProps渲染完成 此处定制pageProps
   pageProps.age = 20; // 注入appProps之前
 
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_components_Layout_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], null, __jsx(Component, pageProps)));
@@ -2339,6 +2350,17 @@ module.exports = require("prop-types-exact");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "styled-jsx/style":
+/*!***********************************!*\
+  !*** external "styled-jsx/style" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("styled-jsx/style");
 
 /***/ }),
 

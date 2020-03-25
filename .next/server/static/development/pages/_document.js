@@ -1098,8 +1098,8 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
         enhanceComponent: Component => Component
       });
 
-      const initialProps = await next_document__WEBPACK_IMPORTED_MODULE_1___default.a.getInitialProps(ctx);
-      console.log('document initialProps is', initialProps);
+      const initialProps = await next_document__WEBPACK_IMPORTED_MODULE_1___default.a.getInitialProps(ctx); // console.log('document initialProps is', initialProps);
+
       return _objectSpread({}, initialProps, {
         styles: __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, initialProps.styles, " ", sheet.getStyleElement(), " ")
       });

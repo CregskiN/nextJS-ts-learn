@@ -1,8 +1,8 @@
 import { Fragment } from 'react';
-
 import { NextComponentType } from 'next';
 import { withRouter, NextRouter } from 'next/router';
 import Head from 'next/head';
+import getConfig from 'next/config';
 
 interface PublicInitialProps {
     age: number;
@@ -17,7 +17,14 @@ interface HomeProps extends HomeInitialProps, PublicInitialProps {
     // url: Router; // custom App兴起，这个就没了
 }
 
+
+
 const Home: NextComponentType<any, HomeInitialProps, HomeProps> = (props) => {
+    const {serverRuntimeConfig, publicRuntimeConfig} = getConfig();
+    
+    console.log(serverRuntimeConfig),
+    console.log(publicRuntimeConfig);
+    
 
     return (
         <Fragment>
@@ -26,6 +33,7 @@ const Home: NextComponentType<any, HomeInitialProps, HomeProps> = (props) => {
             </Head>
             {'home page'}
             <div>{props.name}</div>
+            <div>{process.env.customKey}</div>
         </Fragment>
     )
 }

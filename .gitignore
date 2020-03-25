@@ -4,4 +4,5 @@ node_modules
 # 一些技术测试用例代码
 test
 
-.next/*/*
+.next
+build

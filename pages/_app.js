@@ -6,7 +6,7 @@ import Layout from '../components/Layout/Layout'
 
 const Container = ({ Component, pageProps }) => {
     // console.log(Component); // withRouteWrapper
-    console.log('pageProps is', pageProps);
+    // console.log('pageProps is', pageProps);
 
     // pageProps渲染完成 此处定制pageProps
     pageProps.age = 20;

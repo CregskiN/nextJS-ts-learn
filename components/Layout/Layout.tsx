@@ -13,19 +13,26 @@ const Layout: React.FC<LayoutProps> = (props) => {
     console.log('component Layout render..');
 
     return (
-        <>
-            <header>
-                <Link href='/home' >
-                    <Button>go home</Button>
-                </Link>
-                <Link href='/t/list' >
-                    <Button>go list</Button>
-                </Link>
-            </header>
-            {
-                children
-            }
-        </>
+        <div>
+            <div className='root'>
+                <header>
+                    <Link href='/home' >
+                        <Button>go home</Button>
+                    </Link>
+                    <Link href='/t/list' >
+                        <Button>go list</Button>
+                    </Link>
+                </header>
+                {
+                    children
+                }
+
+            </div>
+            <style jsx>{`.root{
+                        position: absolute;
+                        left: 400px;
+                    }`}</style>
+        </div>
     )
 }
 

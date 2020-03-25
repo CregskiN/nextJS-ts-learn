@@ -26,7 +26,7 @@ class MyDocument extends Document {
                 enhanceComponent: Component => Component
             });
             const initialProps = await Document.getInitialProps(ctx);
-            console.log('document initialProps is', initialProps);
+            // console.log('document initialProps is', initialProps);
             return {
                 ...initialProps,
                 styles: (

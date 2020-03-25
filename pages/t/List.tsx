@@ -1,17 +1,25 @@
 import { NextComponentType } from 'next';
 import { NextRouter } from 'next/router';
 import Head from 'next/head';
-import Board from '../../components/Board/Board';
+import dynamic from 'next/dynamic';
+
+
+const Board = dynamic(import(/* webpackChunkName: "asyncComponent_Board_listPage" */'../../components/Board/Board'));
 
 
 
-interface LIstInitialProps { }
+interface LIstInitialProps {
+    // name?: string;
+    // time?: string;
+}
 
 interface LIstProps extends LIstInitialProps {
     router: NextRouter;
+    name?: string;
+    time?: string;
 }
 
-const LIst: NextComponentType<any, LIstInitialProps, LIstProps> = (props) => {
+const List: NextComponentType<any, LIstInitialProps, LIstProps> = (props) => {
 
     console.log('component LIst render..');
 
@@ -22,6 +30,9 @@ const LIst: NextComponentType<any, LIstInitialProps, LIstProps> = (props) => {
             </Head>
             <Board />
             <div>List Page</div>
+            <div>{props.name}</div>
+            <div>{props.time}</div>
+            <div>{process.env.customKey}</div>
             <style jsx>{`
                 div {
                     color: blue;
@@ -31,11 +42,18 @@ const LIst: NextComponentType<any, LIstInitialProps, LIstProps> = (props) => {
     )
 }
 
-// LIst.getInitialProps = () => {
-//     return {
+List.getInitialProps = async () => {
+    const moment = await import(/* webpackChunkName: "momentAsyncChunkInListPage" */'moment');
+    const promise = new Promise((resolve) => {
+        setTimeout(() => {
+            resolve({
+                name: 'cregskiN',
+                time: moment.default(Date.now() - 60 * 1000).fromNow()
+            })
+        }, 2000);
+    })
+    return await promise;
+}
 
-//     }
-// }
 
-
-export default LIst;
+export default List;
