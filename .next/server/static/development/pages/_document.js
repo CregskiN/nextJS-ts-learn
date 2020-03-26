@@ -1047,10 +1047,10 @@ module.exports = __webpack_require__(/*! ./dist/pages/_document */ "./node_modul
 
 /***/ }),
 
-/***/ "./pages/_document.js":
-/*!****************************!*\
-  !*** ./pages/_document.js ***!
-  \****************************/
+/***/ "./pages/_document.tsx":
+/*!*****************************!*\
+  !*** ./pages/_document.tsx ***!
+  \*****************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1075,9 +1075,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  // HOC
 
 function withLog(Component) {
-  console.log('withLog receive ', Component);
+  // console.log('withLog receive ', Component);
   return props => {
-    console.log('HOC receive ', props);
+    // console.log('HOC receive ', props);
     return __jsx(Component, props);
   };
 }
@@ -1115,17 +1115,32 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (MyDocument);
+/* 
+// custom App 添加getInitialProps会禁用静态资源优化（所有的getInitial失效），下面的代码可以解决这个问题
+MyApp.getInitialProps = async (appContext: AppContextType<Router>) => {
+    console.log('MyApp - getInitialProps receive ', appContext);
+    const { Component, ctx } = appContext;
+    console.log('App is', App);
+    let appProps;
+    if (Component.getInitialProps) {
+        appProps = await Component.getInitialProps(ctx);
+    }
+    console.log('appProps is ', appProps); // pageProps
+    return {
+        ...appProps
+    }
+} */
 
 /***/ }),
 
 /***/ 1:
-/*!*********************************************!*\
-  !*** multi private-next-pages/_document.js ***!
-  \*********************************************/
+/*!**********************************************!*\
+  !*** multi private-next-pages/_document.tsx ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! private-next-pages/_document.js */"./pages/_document.js");
+module.exports = __webpack_require__(/*! private-next-pages/_document.tsx */"./pages/_document.tsx");
 
 
 /***/ }),

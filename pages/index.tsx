@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import Router from 'next/router';
 import { NextComponentType } from 'next';
 
+
 const events = [
     'routeChangeStart',
     'routeChangeComplete',

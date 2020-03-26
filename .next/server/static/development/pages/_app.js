@@ -93,6 +93,97 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./components/HOC/with-redux.tsx":
+/*!***************************************!*\
+  !*** ./components/HOC/with-redux.tsx ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../store/index */ "./store/index.ts");
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+
+
+const isServer = true;
+const __NEXT_REDUX_STORE__ = '__NEXT_REDUX_STORE__';
+
+function getOrCreateStore(initialProps) {
+  if (isServer) {
+    return Object(_store_index__WEBPACK_IMPORTED_MODULE_1__["getServerStore"])(initialProps);
+  }
+
+  if (!window[__NEXT_REDUX_STORE__]) {
+    window[__NEXT_REDUX_STORE__] = Object(_store_index__WEBPACK_IMPORTED_MODULE_1__["getClientStore"])(initialProps);
+  }
+
+  return window[__NEXT_REDUX_STORE__];
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (MyApp => {
+  // console.log('WithRedux receive', MyApp); // WithRedux用于_app.js，Comp获取的是app组件
+  class WithReduxApp extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+    constructor(props) {
+      super(props);
+      this.reduxStore = getOrCreateStore(props.initialReduxState);
+    }
+
+    render() {
+      console.log('WithReduxApp - render');
+
+      const _this$props = this.props,
+            {
+        Component,
+        pageProps
+      } = _this$props,
+            rest = _objectWithoutProperties(_this$props, ["Component", "pageProps"]);
+
+      return __jsx(MyApp, _extends({
+        Component: Component,
+        pageProps: pageProps
+      }, rest, {
+        reduxStore: this.reduxStore
+      }));
+    }
+
+  }
+
+  WithReduxApp.getInitialProps = async ctx => {
+    console.log('WithRedux - getInitialProps');
+    let appProps = {};
+
+    if (typeof MyApp.getInitialProps === 'function') {
+      appProps = await MyApp.getInitialProps(ctx);
+    }
+
+    const reduxStore = getOrCreateStore({});
+    return _objectSpread({}, appProps, {
+      initialReduxState: reduxStore.getState()
+    });
+  };
+
+  return WithReduxApp;
+});
+
+/***/ }),
+
 /***/ "./components/Layout/Layout.tsx":
 /*!**************************************!*\
   !*** ./components/Layout/Layout.tsx ***!
@@ -2233,10 +2324,10 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./pages/_app.js":
-/*!***********************!*\
-  !*** ./pages/_app.js ***!
-  \***********************/
+/***/ "./pages/_app.tsx":
+/*!************************!*\
+  !*** ./pages/_app.tsx ***!
+  \************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2246,9 +2337,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd/dist/antd.css */ "./node_modules/antd/dist/antd.css");
-/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_Layout_Layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Layout/Layout */ "./components/Layout/Layout.tsx");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "react-redux");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd/dist/antd.css */ "./node_modules/antd/dist/antd.css");
+/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_Layout_Layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Layout/Layout */ "./components/Layout/Layout.tsx");
+/* harmony import */ var _components_HOC_with_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/HOC/with-redux */ "./components/HOC/with-redux.tsx");
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -2262,38 +2356,122 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-const Container = ({
-  Component,
-  pageProps
-}) => {
-  // console.log(Component); // withRouteWrapper
-  // console.log('pageProps is', pageProps);
-  // pageProps渲染完成 此处定制pageProps
-  pageProps.age = 20; // 注入appProps之前
 
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_components_Layout_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], null, __jsx(Component, pageProps)));
+
+const MyApp = props => {
+  const {
+    Component,
+    pageProps,
+    reduxStore
+  } = props;
+  console.log('MyApp - render'); // 注入appProps之前
+
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_components_Layout_Layout__WEBPACK_IMPORTED_MODULE_4__["default"], null, __jsx(react_redux__WEBPACK_IMPORTED_MODULE_2__["Provider"], {
+    store: reduxStore
+  }, __jsx(Component, pageProps))));
 }; // custom App 添加getInitialProps会禁用静态资源优化（所有的getInitial失效），下面的代码可以解决这个问题
 
 
-Container.getInitialProps = async appContext => {
-  // if(App.getInitialProps){}
-  const appProps = await next_app__WEBPACK_IMPORTED_MODULE_1___default.a.getInitialProps(appContext); // 获取包括一些关键信息，例如pageProps
+MyApp.getInitialProps = async ctx => {
+  console.log('MyApp - getInitialProps');
+  const appProps = await next_app__WEBPACK_IMPORTED_MODULE_1___default.a.getInitialProps(ctx); // @TODO: 这里需要思考：有两种写法，此处为官网写法，这里使用的App.getInitialProps
+  // @TODO: App内有两个getInitialProps、originalGetInitialProps，猜测：在page有getinitialProps时执行前者，没有则执行后者，
+  // 不允许page.getInitialProps retuen为空是因为，按官方写法，在app render会注入执行page.getInitialProps后的 pageProps
+  // console.log('appProps is ', appProps); // pageProps
 
-  return _objectSpread({}, appProps);
+  return _objectSpread({}, appProps, {
+    AppGetInitialProps: next_app__WEBPACK_IMPORTED_MODULE_1___default.a.getInitialProps
+  });
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Container);
+/* harmony default export */ __webpack_exports__["default"] = (Object(_components_HOC_with_redux__WEBPACK_IMPORTED_MODULE_5__["default"])(MyApp));
+
+/***/ }),
+
+/***/ "./store/index.ts":
+/*!************************!*\
+  !*** ./store/index.ts ***!
+  \************************/
+/*! exports provided: getServerStore, getClientStore */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getServerStore", function() { return getServerStore; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getClientStore", function() { return getClientStore; });
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "redux");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reducer */ "./store/reducer.ts");
+/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux-thunk */ "redux-thunk");
+/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(redux_thunk__WEBPACK_IMPORTED_MODULE_2__);
+
+
+ // 此处创建store的逻辑是server client公用的。有无
+
+function getServerStore(state) {
+  const store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducer__WEBPACK_IMPORTED_MODULE_1__["default"], Object.assign({}, _reducer__WEBPACK_IMPORTED_MODULE_1__["defaultState"], state), Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_2___default.a));
+  return store;
+}
+function getClientStore(state) {
+  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || redux__WEBPACK_IMPORTED_MODULE_0__["compose"];
+  const store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducer__WEBPACK_IMPORTED_MODULE_1__["default"], Object.assign({}, _reducer__WEBPACK_IMPORTED_MODULE_1__["defaultState"], state), composeEnhancers(Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_2___default.a)));
+  return store;
+}
+
+/***/ }),
+
+/***/ "./store/reducer.ts":
+/*!**************************!*\
+  !*** ./store/reducer.ts ***!
+  \**************************/
+/*! exports provided: defaultState, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultState", function() { return defaultState; });
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+const defaultState = {
+  count: 0
+};
+const ADD = 'ADD';
+const MINUS = 'MINUS';
+/* harmony default export */ __webpack_exports__["default"] = ((state = defaultState, action) => {
+  switch (action.type) {
+    case ADD:
+      {
+        return _objectSpread({}, state, {
+          count: state.count + 1
+        });
+      }
+
+    case MINUS:
+      {
+        return _objectSpread({}, state, {
+          count: state.count - 1
+        });
+      }
+
+    default:
+      return state;
+  }
+});
 
 /***/ }),
 
 /***/ 0:
-/*!****************************************!*\
-  !*** multi private-next-pages/_app.js ***!
-  \****************************************/
+/*!*****************************************!*\
+  !*** multi private-next-pages/_app.tsx ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! private-next-pages/_app.js */"./pages/_app.js");
+module.exports = __webpack_require__(/*! private-next-pages/_app.tsx */"./pages/_app.tsx");
 
 
 /***/ }),
@@ -2350,6 +2528,39 @@ module.exports = require("prop-types-exact");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-redux":
+/*!******************************!*\
+  !*** external "react-redux" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-redux");
+
+/***/ }),
+
+/***/ "redux":
+/*!************************!*\
+  !*** external "redux" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("redux");
+
+/***/ }),
+
+/***/ "redux-thunk":
+/*!******************************!*\
+  !*** external "redux-thunk" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("redux-thunk");
 
 /***/ }),
 

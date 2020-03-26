@@ -14,17 +14,15 @@ interface HomeInitialProps {
 
 interface HomeProps extends HomeInitialProps, PublicInitialProps {
     router: NextRouter;
-    // url: Router; // custom App兴起，这个就没了
+    // url: Router; // custom App使用后禁用静态资源优化，这个就没了
 }
 
 
 
 const Home: NextComponentType<any, HomeInitialProps, HomeProps> = (props) => {
     const {serverRuntimeConfig, publicRuntimeConfig} = getConfig();
-    
     console.log(serverRuntimeConfig),
     console.log(publicRuntimeConfig);
-    
 
     return (
         <Fragment>

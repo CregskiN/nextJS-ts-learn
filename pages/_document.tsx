@@ -2,10 +2,10 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 // HOC
 function withLog(Component) {
-    console.log('withLog receive ', Component);
+    // console.log('withLog receive ', Component);
 
     return (props) => {
-        console.log('HOC receive ', props);
+        // console.log('HOC receive ', props);
         return <Component {...props} />
     }
 }
@@ -57,3 +57,21 @@ class MyDocument extends Document {
 }
 
 export default MyDocument;
+
+
+
+/* 
+// custom App 添加getInitialProps会禁用静态资源优化（所有的getInitial失效），下面的代码可以解决这个问题
+MyApp.getInitialProps = async (appContext: AppContextType<Router>) => {
+    console.log('MyApp - getInitialProps receive ', appContext);
+    const { Component, ctx } = appContext;
+    console.log('App is', App);
+    let appProps;
+    if (Component.getInitialProps) {
+        appProps = await Component.getInitialProps(ctx);
+    }
+    console.log('appProps is ', appProps); // pageProps
+    return {
+        ...appProps
+    }
+} */
