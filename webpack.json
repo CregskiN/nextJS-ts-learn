@@ -1,0 +1,85 @@
+{
+    "dir": "E:\\code\\next-app",
+    "dev": true,
+    "isServer": true,
+    "buildId": "development",
+    "config": {
+        "env": {
+            "customKey": "value"
+        },
+        "webpackDevMiddleware": null,
+        "distDir": ".next",
+        "assetPrefix": "",
+        "configOrigin": "next.config.js",
+        "useFileSystemPublicRoutes": true,
+        "generateEtags": true,
+        "pageExtensions": [
+            "tsx",
+            "ts",
+            "jsx",
+            "js"
+        ],
+        "target": "server",
+        "poweredByHeader": true,
+        "compress": true,
+        "devIndicators": {
+            "buildActivity": true,
+            "autoPrerender": true
+        },
+        "onDemandEntries": {
+            "maxInactiveAge": 60000,
+            "pagesBufferLength": 2
+        },
+        "amp": {
+            "canonicalBase": ""
+        },
+        "exportTrailingSlash": false,
+        "experimental": {
+            "cpus": 5,
+            "css": true,
+            "scss": true,
+            "documentMiddleware": false,
+            "granularChunks": true,
+            "modern": false,
+            "plugins": false,
+            "profiling": false,
+            "sprFlushToDisk": true,
+            "reactMode": "legacy",
+            "workerThreads": false,
+            "basePath": "",
+            "sassOptions": {}
+        },
+        "future": {
+            "excludeDefaultMomentLocales": false
+        },
+        "serverRuntimeConfig": {
+            "mySecret": "secret"
+        },
+        "publicRuntimeConfig": {
+            "staticFolder": "/static"
+        },
+        "reactStrictMode": false
+    },
+    "defaultLoaders": {
+        "babel": {
+            "loader": "next-babel-loader",
+            "options": {
+                "isServer": true,
+                "distDir": "E:\\code\\next-app\\.next",
+                "pagesDir": "E:\\code\\next-app\\pages",
+                "cwd": "E:\\code\\next-app",
+                "cache": true,
+                "babelPresetPlugins": [],
+                "hasModern": false,
+                "development": true
+            }
+        },
+        "hotSelfAccept": {
+            "loader": "noop-loader"
+        },
+        "css": [
+            "ignore-loader"
+        ]
+    },
+    "totalPages": 3
+}

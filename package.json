@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node server/app.js",
+    "dev": "nodemon server/app.js",
     "build": "next build",
     "start": "next start"
   },
@@ -17,12 +17,14 @@
     "@types/redux-thunk": "^2.1.0",
     "@zeit/next-css": "^1.0.1",
     "antd": "^4.0.3",
+    "axios": "^0.19.2",
     "babel-plugin-import": "^1.13.0",
     "babel-plugin-styled-components": "^1.10.7",
     "ioredis": "^4.16.0",
     "jquery": "^3.4.1",
     "koa": "^2.11.0",
     "koa-router": "^8.0.8",
+    "koa-session": "^5.13.1",
     "moment": "^2.24.0",
     "next": "^9.3.1",
     "nodemon": "^2.0.2",
@@ -34,13 +36,21 @@
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
+    "@types/ioredis": "^4.14.9",
     "@types/koa": "^2.11.2",
     "@types/koa-router": "^7.4.0",
+    "@types/koa-session": "^5.10.2",
     "@types/next": "^9.0.0",
     "@types/node": "^13.9.2",
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
     "@types/react-redux": "^7.1.7",
-    "typescript": "^3.8.3"
+    "@types/styled-components": "^5.0.1",
+    "awesome-typescript-loader": "^5.2.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   }
 }
